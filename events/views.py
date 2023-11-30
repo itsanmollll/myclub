@@ -3,7 +3,7 @@ import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 # Create your views here.
-def home(request,year=datetime.now().year,month=datetime.now().strftime()):
+def home(request,year=datetime.now().year,month=datetime.now().strftime('%B')):
     name = "JOHN"
     month = month.title() # Convert lowerCase to upperCase
     # Convert month_name to month_number
@@ -21,7 +21,7 @@ def home(request,year=datetime.now().year,month=datetime.now().strftime()):
 
     # Get Current time
     time = now.strftime('%I:%M %p')
-    return render(request, 'home.html',{
+    return render(request, 'events/home.html',{
         "name" : name,
         "year" : year,
         "month" : month,
