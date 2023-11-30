@@ -3,7 +3,7 @@ import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 # Create your views here.
-def home(request,year=2023,month="December"):
+def home(request,year=datetime.now().year,month=datetime.now().strftime()):
     name = "JOHN"
     month = month.title() # Convert lowerCase to upperCase
     # Convert month_name to month_number
