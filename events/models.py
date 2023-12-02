@@ -8,6 +8,9 @@ class Venue(models.Model):
     web = models.URLField('Website Address')
     email = models.EmailField('Email Address')
 
+    def __str__(self):
+        return self.name
+
 
 class MyClubUser(models.Model):
     first_name = models.CharField(max_length=30)
@@ -15,7 +18,7 @@ class MyClubUser(models.Model):
     email = models.EmailField('User Email')
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.first_name #+ ' ' + self.last_name
 class Event(models.Model):
     name = models.CharField('Event Name', max_length=120)
     event_date = models.DateTimeField('Event Date')
@@ -23,6 +26,7 @@ class Event(models.Model):
     #venue = models.CharField(max_length=120)
     manager = models.CharField(max_length=120)
     description = models.TextField(blank=True)
+    attendees = models.ManyToManyField(MyClubUser , blank=True)
 
 
 
